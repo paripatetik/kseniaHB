@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Ksenia</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <a href="#"><img src="img/logo3-removebg-preview.png" alt="logo"></a>
+                </div>
+                <div class="header__menu menu">
+                    <button type="button" class="menu__icon icon-menu"><span></span></button>
+                    <nav class="menu__body">
+                        <ul class="menu__list">
+                            <li class="menu__item"><a href="#facts" class="menu__link" data-goto-header data-goto="#facts">Об'єктивні факти</a></li>
+                            <li class="menu__item"><a href="#quotation" class="menu__link" data-goto-header data-goto="#quotation">Цитати</a></li>
+                            <li class="menu__item"><a href='#titles' class="menu__link" data-goto-header data-goto="#titles">Титули</a></li>
+                            <li class="menu__item"><a href="#game" class="menu__link" data-goto-header data-goto="#bonus">Бонус</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="player">
+                    <audio id="av-tag" controls><source src="audio/Kyle Andrews - Sushi (dizer.net).mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                    </audio>
+                    <button class="play-btn"> <span class="triangle"></span></button>
+                 
+                    <input id="cur-time" type="range" min="0" max="10" step="0">
+                    <div id="speaker">🔊</div>
+                    <input id="volume" type="range" min="0" max="10">
+                    </div>
+            </div>
+        </header>
+        <main class="home">
+                <div class="home__sections">
+                <section data-item class="home__main-slider main-slider swiper" >
+                        <div class="main-slider__wrapper swiper-wrapper">
+                            <div class="main-slider__slide swiper-slide first-slide">
+                                <img class='main-slider__bg' src="img/bush.jfif" alt="ks">
+                                <div class="main-slider__container">
+                                   <a class='main-slider__photo'><img src="img/pingr.jpg" alt="ks"></a>
+                                    <div class="main-slider__body">
+                                        <h3 class="main-slider__title">Дорога Ксеня!</h3>
+                                        <p class="main-slider__text">Вітаю тебе з Днем народження!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-slider__slide swiper-slide">
+                                <img class='main-slider__bg' src="img/sofa3.jpg" alt="ks">
+                                <div class="main-slider__container second-slide">
+                                    
+                                    <div class="main-slider__body">
+                                        <h3 class="main-slider__title">Ти - диво,</h3>
+                                        <p class="main-slider__text">Яке чомусь трапилося зі мною</p>
+                                    </div>
+                                    <a class="main-slider__photo"><img src="img/potator.jpg" alt="potato"></a>
+                                </div>
+                            </div>
+                            <div class="main-slider__slide swiper-slide">
+                                <img class='main-slider__bg' src="img/olives.webp" alt="ks">
+                                <div class="main-slider__container">
+                                    <div class="main-slider__photo"><img src="img/clock.jpg" alt="clock"></div>
+                                    <div class="main-slider__body white-slide">
+                                        <h3 class="main-slider__title">З тобою</h3>
+                                        <p class="main-slider__text">Час летить швидко :)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-slider__bullets bullets">
+                            <div class="bullets__container">
+                                <div class="bullets__items">
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                </section>
+                <section data-item class="homes__facts" id='facts' data-watch="navigator">
+                 
+                    <div class="facts__container">
+                        <div class="greeting__container">
+                            Дуже сподіваюся, ці дрібнички тебе змусять усміхнутися :)
+                        </div>
+                        <h2 class="facts__title title">Об'єктивні факти</h2>
+                        <div class="facts__row">
+                            <p class="facts__fact left">Ксеня - мила та світла істота (див. фото з пінгвіном), яка з'явилася на світ однієї п'ятниці лютого 2001 року. Вона вважає себе ще й вредною та зловісною. Але вона сама здогадується, що від цього вона заворожує не менше (а якщо не здогадується, то я подбаю, щоб догадалася). <br> Це - факти.</p>
+                            <p class="facts__fact right">Ксеня вважає п'ятниці драматичними нагодами для істеричного сміху. Однак це дуже суб'єктивно, адже її поява на світ у п'ятницю виправдовує цей день.<br> Це - факти. </p>
+                            <p class="facts__fact left">Ксені хочеться побажати усього найкращого, що можна помислити у кращому з можливих світів. Вона має чуйне серце, любить котиків і фото з ними, є напрочуд кмітливою і красивою, усміхається як хмаринкове сонечко і сонечкова хмаринка разом узяті, а ще ненароком краде серця. <br> Це - факти.</p>
+                            <p class="facts__fact right">Ксеня встигла уже натерпітися через драматичні неділі і не лише неділі. Це, на жаль, також факти, за які мені шкода. Щиро хочу, щоб ти була щасливою. А ще ти мені дуже подобаєшся, це - суб'єктивний факт, за який мені зовсім не шкода.</p>
+                            <p class="facts__fact left last"> <span>Ксеня, дякую, що ти є</span> <span class="heart-shape"></span></p>  
+                        </div>
+                    </div>
+                </section>
+                <section data-item class="homes__quotation" id='quotation' data-watch="navigator">
+                 
+                    <div class="quotation__container">
+                       
+                        <h2 class="facts__title title">Цитати іменниниці</h2>
+                        <div class="quotation__row">
+                            <p class="quotation__item">"Взагалі мені подобаються власні жахіття за умови, якщо в них не страждають інші люди. Тут вже я стаю зовнішнім спостерігачем і отримую адреналін від перегляду цього горору."  <br> <span>
+                                Черговий доказ твого великого серця і милості... А ще твого дивацтва, яким захоплююся. 
+                            </span> </p>
+                            
+                            <p class="quotation__item">"Вибачте, але якщо вже прощатись з цим світом то хоч під гарну композицію."<br> <span>
+                                Сподіваюся, твоє життя буде гарною композицію, щоб ти не квапилася з ним прощатися :)
+                            </span></p>
+                            <p class="quotation__item">"У розчарування таки можна знайти один маленький плюс. Не можна розчаруватись у тому, в що не зачаровувався, тож наше життя не таке вже й погане."   <br><span>
+                                Твоя здатність бачити плюси не може не заворожувати. 
+                            </span></p>
+                            <p class="quotation__item">"Що ж, моя версія хорошої людини, в першу чергу, повинна мати хоч якісь недоліки, - це буде її перевагою, хах. Інакше я б не змогла позбутись параноїдальних думок про те, що вона просто таки вигадана." <br><span>
+                                Не буду казати, що у тебе немає недоліків, бо полетять звинувачення, але ти таки видаєшся вигаданою кимось. 
+                            </span></p>
+                           
+                            <p class="quotation__item">"Я створила песимістично-оптимістичне кредо: 'Не переймайся, все може стати ще гірше!'" <br><span>
+                                Більше не переймаюся, дякую. Твоє кредо може для багатьох стати розрадою. Не перестаю дивуватися його мудрості. 
+                            </span></p>
+                            
+                            <p class="quotation__item">"Знаєш, що добре в таких гарних ілюзіях? Хтось у них таки вірить, а отже і робить більш-менш реальними. Ну або затягує в свої ілюзії інших, ні в чому не винних людей."   <br><span>
+                                І не кажи, понатягують бузкові окуляри на носа, а потім... Добре, що я не невинна людина, інакше затягнула б і мене. 
+                            </span></p> 
+                            <p class="quotation__item">"Що ж, тоді я прикрашатиму твоє буття, дозволятимеш ти чи ні. Хоча навряд у тебе вийде мені в цьому відмовити😇" 
+                                <br>
+                                <span>
+                                Справді прикрашаєш і я тобі вдячний за це 🙃
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section data-item class="homes__titles" id="titles" data-watch="navigator">
+                    <div class="titles__container">
+                        <h2 class="titles__title title">Титули</h2>
+                        <ul class="titles__list">
+                            <li class="left"><span>Кущик</span></li>
+                            <li class="right"><span>Диванна Картопелька</span></li>
+                            <li class="left"><span>Ксеня Саспенс</span></li>
+                            <li class="right"><span>Патрокл</span></li>
+                            <li class="left"><span>Не-Кліше</span></li>
+                            <li class="right"><span>Сніжинка?</span></li>
+
+                        </ul>
+                    </div>
+                </section>
+                <section data-item class="homes__bonus" id="bonus" >
+                    <div class="bonus__container">
+                        <h2 class="bonus__title title">
+                            Бонус. Тицьни на ложку. <br> Тобі сподобається :) 
+                            <div class="bonus__text">
+                                Правда мило? (:
+                            </div>
+                        </h2>
+                        <div class="bonus__img">
+                            <img src="img/banka.png" alt="#" class="bonus__banka">
+                            <div class="bonus__spoon"> 
+                                <button href="#"><img src="img/spoon-removebg-preview.png" alt="#"></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="uroboros" data-item class="homes__bonus">
+                    <img src="img/Ouroboros.svg.webp" alt="#">
+                    <div>
+                        <span>2</span>
+                        <span>2</span>
+                    </div>
+                </section>
+                </div>   
+        </main>
+       
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+</html>

@@ -1,0 +1,692 @@
+@use "sass:math";
+@import "mixins.scss";
+// @import 'icons.scss';
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+// Підключення шрифтів ===========================================================================================================================================================================================================================================================================
+//&display=swap - додати при підключенні через плагін
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,italic,500,500italic,700,700italic,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:regular,500,600,700,800,500italic,600italic,700italic,800italic&display=swap");
+// Підключення іконкових шрифтів ==============================================================================================================================================================================================================================================================================
+// Підключити, якщо є файл іконкового шрифту
+//@import "fonts/icons";
+
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// Налаштування шаблону ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// За замовчуванням шрифт ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Concert One";
+$fontSize: rem(16); // де 14(px) - розмір шрифту за замовчуванням з макету
+
+// Основні кольори
+$mainColor: #000; // Колір шрифту за замовчуванням
+
+// Налаштування адаптивної сітки ===============================================================================================================================================================================================================================================================================================
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1170;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: em($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: em(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: em(767.98); // Телефони L
+$mobileSmall: em(479.98); // Телефони S
+
+// Тип адаптива:
+// 1 = чуйність (у контейнера немає брейкпоінтів),
+// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
+$responsiveType: 1;
+
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+// ============================================================================================================================================================================================================================================================================================================================================================================================
+
+// Обнулення ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+
+@import 'null.scss';
+// Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
+
+body {
+	// Скролл заблоковано
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	.loaded & {
+	}
+	
+}
+
+// Оболонка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+// контейнер ======================================================================================================================================================================================================================
+
+@if ($responsiveType==1) {
+	// Чуйна
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+} @else {
+	// Брейк-поїнтами
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($containerWidth);
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+//commons 
+a{
+	transition: all 0.4s ease-in;
+}
+@import 'audio.scss';
+@import 'header.scss';
+.title {
+	font-family: 'Roboto';
+	font-weight: 600;
+	color: rgb(30, 34, 30);
+	@include adaptiveValue("font-size", 40, 30);
+	line-height: 1.3;
+	letter-spacing: 2px;
+	text-decoration: underline;
+}
+
+.section{
+
+}
+.home__sections {
+	position: relative;
+	font-family: $fontFamily;
+	z-index: 0;
+}
+.home__container {
+	
+}
+.home__main-slider {
+	
+}
+
+
+.main-slider__wrapper {
+	display: flex;
+}
+.swiper-wrapper {
+}
+.main-slider__slide {
+
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+	background-color: rgb(114, 105, 105);
+
+	
+}
+.main-slider__bg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	opacity: 0.9;
+	
+}
+.main-slider__container{
+
+	height: 100vh;
+	padding-top: 90px;
+	@media (max-width:$mobile){
+		padding-top: 75px;
+	}
+	
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	
+
+	@include adaptiveValue("gap", 70, 4);
+	justify-content: center;
+	@media (max-width:$mobile){
+		flex-direction: column;
+		@include adaptiveValue("gpa", 25, 10);
+		justify-content: flex-start;
+	}
+
+}
+.main-slider__photo{
+	@media (max-width:$mobile){
+	
+		padding: 18px 0 18px 0;
+	
+	}
+	.first-slide &{
+		order: 2;
+	}
+	@include adaptiveValue("width", 550, 320);
+	@include adaptiveValue("height", 550, 400);
+
+	img{
+		
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+		border-radius: 50px;
+		border: 2px rgb(192, 188, 188) solid;
+		transition: all 0.5s ease;
+		&:hover{
+			transform: scale(1.01);
+		}
+	}
+}
+
+.second-slide{
+	h3{
+		color: black;
+	}
+	
+}
+.main-slider__body{
+
+	border: 3px solid rgb(16, 84, 18);
+	border-radius: 20px;
+	padding: 12px 15px;
+	color: white;
+	@include adaptiveValue("font-size", 34, 28);
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("gap", 12, 5);
+	.first-slide &{
+		border-color: rgb(8, 7, 7);
+	}
+	
+}
+
+
+.swiper-slide {
+}
+.main-slider__title {
+	font-weight: 800;
+	@include adaptiveValue("font-size", 50, 37);
+	line-height: 1.24;
+
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.main-slider__text {
+	line-height: 1.14;
+	font-weight: 650;
+	@include adaptiveValue("font-size", 24, 20);
+}
+.white-slide {
+		color: rgb(6, 101, 17);
+		p {
+			color: white;
+		}
+}
+
+.bullets{
+	position: relative;
+	margin-top: -25px;
+	z-index: 2;
+	float: right;
+	padding-right: 60px;
+	@media (max-width:$mobile){
+		margin-top: -60px;
+	}
+}
+
+.bullets__items{
+	display: flex;
+	align-items: center;
+	z-index: 10;
+	gap: 10px;
+}
+
+.bullets__items .swiper-pagination-bullet{
+	flex: 0 0 0.9rem;
+	height: 0.7rem;
+	background-color: rgb(186, 206, 30);
+	border-radius: 50%;
+	opacity: 0.7;
+	transition: opacity 0.3s;
+	cursor: pointer;
+	z-index: 10;
+	border: 2.5px solid rgb(134, 234, 141);
+}
+
+.bullets__items .swiper-pagination-bullet-active{
+	opacity: 1;
+}
+
+.main-slider__title, .main-slider__text{
+	transform: translate(0px, 3.123rem);
+	opacity: 0;
+	transition: all 0.9s;
+	.loaded &{
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+.loaded .main-slider__title{
+	transition-delay: 0.5s;
+}
+.loaded .main-slider__text{
+	transition-delay: 0.8s;
+}
+
+[data-item] {
+	transform: translate(0px, 3.1rem);
+	opacity: 0;
+	transition: all 0.9s ease-in;
+	&.active{
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+//=======
+
+.homes__bonus {
+	
+}
+.bonus__container {
+	margin-top: 30px;
+}
+.bonus__title {
+	@include adaptiveValue("margin-top", 60, 20);
+	position: relative;
+	@include adaptiveValue("font-size", 38, 24);
+}
+.bonus__text{
+	position: absolute;
+	color: rgb(49, 61, 49);
+	font-size: 18px;
+	font-family: $fontFamily;
+	top: 115px;
+	left: -100%;
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+	&.active{
+		transition: all 0.3s ease-in-out;
+		left: 0;
+		opacity: 1;
+	}
+}
+
+.bonus__img {
+	margin-top: 70px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	img {
+		object-fit: cover;
+		@media (max-width:$mobile){
+			 max-width: 300px;
+			 max-height: 350px; 
+		}
+	}
+}
+.bonus__spoon {
+	position: absolute;
+	top: -80px;
+	right: 22%;
+	@media (max-width:$tablet){
+		right: 15%;
+	}
+	@media (max-width:600px){
+		right: 12%;
+	}
+	@media (max-width:$mobileSmall){
+		 right: 2%; 
+	}
+	img {
+		max-height: 370px;
+		height: 100%;
+		object-fit: cover;
+		transition: all 0.09s ease-in;
+		width: 100%;
+	@media (max-width:$mobile){
+		
+		max-height: 250px; 
+   		}
+		&:active{
+			transform: rotate(-80deg);
+		}
+	}
+}
+
+.bonus__banka{
+	transition: all 0.2s ease-out;
+ &.active{
+	transform: rotate(-90deg) translate(-150px, -50px);
+	
+ }
+}
+
+///===========================
+
+.greeting__container {
+	text-align: center;
+	@include adaptiveValue("font-size", 30, 20);
+	font-weight: 700;
+	line-height: 1.22;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	color: rgb(12, 15, 12);
+	max-width: 900px;
+	margin-top: 25px;
+	letter-spacing: 1px;
+	border-radius: 15px;
+	border: 2px solid rgb(15, 45, 15);
+	padding: 12px 15px;
+	box-shadow: 2px 2px 2px 1px;
+}
+body{
+	background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(19, 55, 19) 0%, rgba(48,72,49,1) 0%, rgba(134,200,141,1) 0%, rgb(23, 88, 30) 100%, rgba(76,134,83,1) 100%, rgba(0,212,255,1) 100%);
+}
+.facts__container {
+	
+}
+.facts__row{
+	margin-top: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding-bottom: 20px;
+}
+.facts__title {
+	margin-top: 17px;
+	line-height: 1.3;
+	margin-bottom: 19px;
+}
+[data-item] .title{
+	transform: translate(-10rem, 0);
+    opacity: 0;
+	transition: all 0.8s ease-in-out;
+}
+[data-item].active .title{
+	transform: translate(0, 0);
+    opacity: 1;
+}
+.facts__fact {
+	border: 2px solid rgb(19, 27, 19);
+	transition: all 1s ease-in-out;
+	&.last{
+		display: flex;
+		align-items: center;
+		gap: 18px;
+	}
+	cursor: pointer;
+	&:hover{
+		padding: 17px 15px;
+		background-color: rgb(41, 190, 73);
+		color: rgb(39, 59, 38);
+	}
+	box-shadow: rgba(30, 57, 30, 0.773) 5px 2px 2px 1px;
+	padding: 10px 15px;
+	border-radius: 15px;
+	@include adaptiveValue("font-size", 24, 16);
+	max-width: 750px;
+	align-self: center;
+	font-family: 'Alegreya';
+	font-style: italic;
+	line-height: 1.3;
+}
+[data-item] .facts__fact.right{
+	transform: translate(100%, 0);
+    opacity: 0;
+	transition: all 2s ease-out;
+}
+[data-item] .facts__fact.left {
+	transform: translate(-100%, 0);
+    opacity: 0;
+	transition: all 3s ease-out;
+}
+[data-item].active._watcher-view .facts__fact, [data-item].active._watcher-view .titles__list li, [data-item].active._watcher-view .home__bonus{
+	transform: translate(0, 0);
+    opacity: 1;
+}
+
+.heart-shape{  
+	display: inline-block;
+	
+    position: relative;  
+    width: 16px;  
+    height: 16px;  
+    -webkit-transform: rotate(45deg);  
+    -moz-transform: rotate(45deg);  
+    -ms-transform: rotate(45deg);  
+    -o-transform: rotate(45deg);  
+    transform: rotate(45deg);  
+    background-color: rgb(15, 59, 24);  
+	
+	&:before, &:after{
+		position: absolute;  
+    width: 16px;  
+    height: 16px;  
+    content: '';  
+    -webkit-border-radius: 50%;  
+    -moz-border-radius: 50%;  
+    -o-border-radius: 50%;  
+    border-radius: 50%;  
+	background-color: rgb(15, 59, 24);  
+	}
+	&:before{
+		bottom: 0px;  
+    	left: -8px;  
+	}
+	&:after{
+		top: -8px;  
+		right: 0px; 
+	}
+}  
+//==================================
+
+.homes__quotation {
+}
+.quotation__container {
+}
+.facts__title {
+}
+.title {
+}
+
+ .quotation__row {
+
+}
+.quotation__row {
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("gap", 20, 12);
+	p {
+		transform: translate(-100%, 0);
+		opacity: 0;
+	}
+	
+	.active._watcher-view &{
+		p{
+			@for $var from 1 to 7{
+				$delay: $var * 0.2;
+				&:nth-child(#{$var}) {
+					@if $var == 1 {
+						transition: all 0.8s ease 0s;
+					}
+					@else {
+						transition: all 0.8s ease #{$delay + s};
+					}
+				}
+			}
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+.quotation__item {
+	
+	font-family: 'Roboto';
+	padding-left: 20px;
+	font-style: italic;
+	line-height: 1.3;
+	font-size: 20px;
+	color: #000;
+	border-radius: 5px;
+	border-left: 2px solid rgb(16, 15, 15);
+	transition: all 0.8s ease-in-out;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	&:hover{
+		margin-left: 20px;
+		border-bottom: 1.5px rgb(226, 233, 226) solid;
+		border-top: 1.5px rgb(233, 226, 226) solid;
+		border-right: 1.5px rgb(233, 226, 226) solid;
+	}
+	span {
+		display: block;
+		font-family: "Alegreya";
+		font-style: normal;
+		margin-top: 7px;
+	}	
+}
+
+//===================================
+
+.homes__titles {
+	@include adaptiveValue("margin-top", 50, 30);
+}
+.titles__container {
+}
+.titles__title {
+}
+.title {
+}
+.titles__list {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	li {
+		@include adaptiveValue("font-size", 30, 25);
+		font-family: 'Alegreya';
+		line-height: 1.3;
+		transition: all 1s ease-in;
+		 span{
+			border: 2px solid rgb(19, 27, 19);
+			padding: 4px 8px;
+			border-radius: 18px;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+		&:hover{
+		padding: 6px 10px;
+		background-color: rgb(41, 190, 73);
+		color: rgb(12, 21, 11);}	
+		box-shadow: rgba(30, 57, 30, 0.773) 5px 2px 2px 1px;
+		}
+		 &:nth-child(2n){
+			align-self: flex-start;
+		 }
+		 &:nth-child(3n){
+			align-self: flex-end;
+		 }
+		 
+		 &.right{
+			opacity: 0;
+			transform: translate(100%, 0);
+		 }
+		 &.left{
+			opacity: 0;
+			transform: translate(-100%, 0);
+		 }
+		 
+	}
+}
+
+//
+.uroboros {
+	max-width: 800px;
+	margin: 70px auto 0 auto;
+	position: relative;
+	z-index: 10;
+
+	img{
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		animation: spin 10s linear 0.5s infinite;
+		
+	}
+	div{
+
+		font-size: 129px;
+		text-transform: uppercase;
+		font-weight: 800;
+		font-family: 'Alegreya';
+		display: flex;
+		justify-content: center;
+	
+	}
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(-360deg);}
+}
